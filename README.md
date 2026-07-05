@@ -144,6 +144,7 @@ Admin can:
 Add screenshots of:
 
 - Home Page
+- <img width="1352" height="632" alt="Image" src="https://github.com/user-attachments/assets/e2a24798-f16c-41f0-b294-daa2e2bba790" />
 - Product Detail
 - <img width="1357" height="628" alt="Image" src="https://github.com/user-attachments/assets/84a527ef-29e7-4c14-8ae8-8f3f5d4ad9bb" />
 - Cart
