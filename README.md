@@ -148,12 +148,10 @@ Add screenshots of:
 - Product Detail
 - <img width="1357" height="628" alt="Image" src="https://github.com/user-attachments/assets/84a527ef-29e7-4c14-8ae8-8f3f5d4ad9bb" />
 - Cart
+ <img width="1362" height="630" alt="Image" src="https://github.com/user-attachments/assets/8871f81e-7159-4111-803c-0ec546a54253" />
 - Wishlist
  <img width="1365" height="628" alt="Image" src="https://github.com/user-attachments/assets/b0d3de7e-f0a5-4589-8f5e-39acd9892004" />
 
-- Checkout
-- Orders
-- Admin Panel
 
 ---
 
