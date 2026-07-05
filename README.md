@@ -145,6 +145,7 @@ Add screenshots of:
 
 - Home Page
 - Product Detail
+- <img width="1357" height="628" alt="Image" src="https://github.com/user-attachments/assets/84a527ef-29e7-4c14-8ae8-8f3f5d4ad9bb" />
 - Cart
 - Wishlist
 - Checkout
