@@ -1,0 +1,177 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- HERO BANNER -->
+
+<div style="
+background:linear-gradient(to right,#ff9800,#ff5722);
+color:white;
+padding:60px;
+border-radius:15px;
+margin-bottom:40px;
+display:flex;
+justify-content:space-between;
+align-items:center;">
+
+    <div>
+
+        <h1 style="font-size:50px;margin:0;">
+            🔥 SUMMER SALE
+        </h1>
+
+        <h2 style="font-size:35px;">
+            Up To 50% OFF
+        </h2>
+
+        <p style="font-size:20px;">
+            Shoes • Watches • Mobiles • Headphones
+        </p>
+
+        <br>
+
+        <a href="#products">
+            <button style="
+            padding:15px 35px;
+            border:none;
+            background:white;
+            color:#ff5722;
+            border-radius:8px;
+            font-size:20px;
+            cursor:pointer;">
+                Shop Now
+            </button>
+        </a>
+
+    </div>
+
+    <div style="font-size:120px;">
+        🛍️
+    </div>
+
+</div>
+
+<h1 class="heading">Featured Products</h1>
+
+<!-- SEARCH -->
+
+<div class="search-box">
+
+    <form method="GET">
+
+        <input
+        type="text"
+        name="q"
+        placeholder="Search Products..."
+        value="{{ request.GET.q }}">
+
+        <button type="submit">
+            Search
+        </button>
+
+    </form>
+
+</div>
+
+<!-- CATEGORY -->
+
+<div class="categories">
+
+    <a href="/"><button>All</button></a>
+
+    <a href="/?category=Shoes"><button>Shoes</button></a>
+
+    <a href="/?category=Watch"><button>Watch</button></a>
+
+    <a href="/?category=Headphones"><button>Headphones</button></a>
+
+</div>
+
+<!-- PRODUCTS -->
+
+<div class="products" id="products">
+
+{% for product in products %}
+
+<div class="card">
+
+    <div style="text-align:right;">
+        <span style="
+        background:red;
+        color:white;
+        padding:5px 10px;
+        border-radius:15px;
+        font-size:12px;">
+            NEW
+        </span>
+    </div>
+
+    <a href="{% url 'product_detail' product.id %}">
+        <img src="{{ product.image.url }}"
+             alt="{{ product.name }}"
+             style="width:100%;
+             height:220px;
+             object-fit:cover;
+             border-radius:10px;">
+    </a>
+
+    <h2>
+
+        <a href="{% url 'product_detail' product.id %}"
+        style="text-decoration:none;color:black;">
+
+            {{ product.name }}
+
+        </a>
+
+    </h2>
+
+    <p style="color:orange;font-size:18px;">
+        ⭐⭐⭐⭐⭐ 4.8
+    </p>
+
+    <h3 style="color:green;">
+        ₹{{ product.price }}
+    </h3>
+
+    <a href="{% url 'add_to_cart' product.id %}">
+        <button style="
+        width:100%;
+        padding:10px;
+        background:#ff9800;
+        color:white;
+        border:none;
+        border-radius:8px;
+        cursor:pointer;">
+            🛒 Add To Cart
+        </button>
+    </a>
+
+    <br><br>
+
+    <a href="{% url 'add_to_wishlist' product.id %}">
+        <button style="
+        width:100%;
+        padding:10px;
+        background:#e91e63;
+        color:white;
+        border:none;
+        border-radius:8px;
+        cursor:pointer;">
+            ❤️ Add to Wishlist
+        </button>
+    </a>
+
+</div>
+
+{% empty %}
+
+<h2 style="text-align:center;">
+    No Products Found
+</h2>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}
