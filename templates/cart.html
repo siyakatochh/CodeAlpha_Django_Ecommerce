@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cart</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<nav>
+    <div class="logo">🛒 My Store</div>
+
+    <div class="menu">
+        <a href="/">Home</a>
+        <a href="/cart/">Cart</a>
+    </div>
+</nav>
+
+<h1 class="heading">My Cart</h1>
+
+<div class="products">
+
+{% for item in cart_items %}
+
+<div class="card">
+
+    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+
+    <h2>{{ item.product.name }}</h2>
+
+    <p><strong>Price:</strong> ₹{{ item.product.price }}</p>
+
+    <p>
+        <a href="{% url 'decrease' item.id %}">
+            <button>-</button>
+        </a>
+
+        <strong style="margin:0 15px;">
+            {{ item.quantity }}
+        </strong>
+
+        <a href="{% url 'increase' item.id %}">
+            <button>+</button>
+        </a>
+    </p>
+
+    <p>
+        <strong>Subtotal:</strong>
+        ₹{{ item.product.price }} × {{ item.quantity }}
+        = ₹{% widthratio item.product.price 1 item.quantity %}
+    </p>
+
+    <br>
+
+    <a href="{% url 'remove' item.id %}">
+        <button style="background:red;">
+            Remove
+        </button>
+    </a>
+
+</div>
+
+{% empty %}
+
+<h2>Your Cart is Empty</h2>
+
+{% endfor %}
+
+</div>
+
+<h2 style="text-align:center; margin-top:40px;">
+    Total = ₹{{ total }}
+</h2>
+
+<div style="text-align:center; margin:30px;">
+
+    <a href="{% url 'checkout' %}">
+        <button style="padding:15px 40px; font-size:18px;">
+            Proceed To Checkout
+        </button>
+    </a>
+
+</div>
+
+</body>
+</html>
