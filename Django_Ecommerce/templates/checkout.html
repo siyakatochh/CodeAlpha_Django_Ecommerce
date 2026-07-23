@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<nav>
+    <div class="logo">🛒 My Store</div>
+</nav>
+
+<h1 class="heading">Checkout</h1>
+
+<div style="width:400px; margin:30px auto;">
+
+<form method="POST">
+{% csrf_token %}
+
+<input type="text" placeholder="Full Name" required
+style="width:100%;padding:10px;margin:10px 0;">
+
+<input type="email" placeholder="Email" required
+style="width:100%;padding:10px;margin:10px 0;">
+
+<input type="text" placeholder="Phone Number" required
+style="width:100%;padding:10px;margin:10px 0;">
+
+<textarea placeholder="Address"
+style="width:100%;padding:10px;margin:10px 0;"
+required></textarea>
+
+<h2>Total : ₹{{ total }}</h2>
+
+<button type="submit">
+Place Order
+</button>
+
+</form>
+
+</div>
+
+</body>
+</html>
